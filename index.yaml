@@ -9,6 +9,6 @@ entries:
     name: minecraft-server
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/minecraft-server-0.1.0.tgz
+    - https://github.com/moffoso/helm-charts/releases/download/0.1.0/minecraft-server-0.1.0.tgz
     version: 0.1.0
 generated: "2023-12-30T14:52:09.837520129+01:00"
