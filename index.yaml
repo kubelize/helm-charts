@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  minecraft-server:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-12-30T14:52:09.83782409+01:00"
+    description: A minecraft-server helm chart for Kubernetes
+    digest: 4c2d5f3715a3fbc63ed54b46a11520934b3dab38ee2d0aa792213f54f33f6c8e
+    name: minecraft-server
+    type: application
+    urls:
+    - https://github.com/moffoso/helm-charts/minecraft-server-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-12-30T14:52:09.837520129+01:00"
