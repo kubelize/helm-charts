@@ -1,0 +1,113 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "insurgency-sandstorm-server.fullname" . }}
+  labels:
+    {{- include "insurgency-sandstorm-server.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "insurgency-sandstorm-server.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "insurgency-sandstorm-server.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "insurgency-sandstorm-server.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+        - name: mods
+          persistentVolumeClaim:
+            claimName: insurgency-sandstorm
+        - name: engine-ini
+          configMap:
+            name: engine-ini
+        - name: game-ini
+          configMap:
+            name: game-ini
+        - name: game-user-settings-ini
+          configMap:
+            name: game-user-settings-ini
+        - name: admins-txt
+          configMap:
+            name: admins-txt
+        - name: maps-cycle-txt
+          configMap:
+            name: maps-cycle-txt
+        - name: mods-txt
+          configMap:
+            name: mods-txt
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: HOSTNAME
+              value: {{ .Values.env.hostname }}
+            - name: PORT
+              value: {{ .Values.service.gameport }}
+            - name: QUERYPORT
+              value: {{ .Values.service.queryport }}
+            - name: LAUNCH_SERVER_ENV
+              value: {{ .Values.env.launch_server_env }}
+          ports:
+            - name: gameport
+              containerPort: 27102
+              protocol: UDP
+            - name: queryport
+              containerPort: 27131
+              protocol: UDP
+          volumeMounts:
+            - name: engine-ini
+              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Saved/Config/LinuxServer/Engine.ini
+            - name: game-ini
+              mountPath: /home/steam/steamcmd/Sandstorm/Insurgency/Saved/Config/LinuxServer/Game.ini
+            - name: game-user-settings-ini
+              mountPath: /home/steam/steamcmd/Sandstorm/Insurgency/Saved/Config/LinuxServer/GameUserSettings.ini
+            - name: admins-txt
+              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Config/Server/Admins.txt
+            - name: maps-cycle-txt
+              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Config/Server/MapsCycle.txt
+            - name: mods-txt
+              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Config/Server/Mods.txt
+            - name: mods
+              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Mods
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.volumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

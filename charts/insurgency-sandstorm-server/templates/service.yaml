@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "insurgency-sandstorm-server.fullname" . }}
+  labels:
+    {{- include "insurgency-sandstorm-server.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: gameport
+      port: {{ .Values.service.gameport }}
+      targetPort: 27102
+      protocol: UDP
+    - name: queryport
+      port: {{ .Values.service.queryport }}
+      targetPort: 27131
+      protocol: UDP
+  selector:
+    {{- include "insurgency-sandstorm-server.selectorLabels" . | nindent 4 }}

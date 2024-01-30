@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sandstorm-test
+  labels:
+    app: sandstorm-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sandstorm-test
+  template:
+    metadata:
+      labels:
+        app: sandstorm-test
+    spec:
+      containers:
+        - name: sandstorm-test
+          image: moffoso/insurgency-sandstorm-container:0.1.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: HOSTNAME
+              value: sandstorm-test
+            - name: PORT
+              value: "27102"
+            - name: QUERYPORT
+              value: "27131"
+          ports:
+            - name: gameport
+              containerPort: 27102
+              protocol: UDP
+            - name: queryport
+              containerPort: 27131
+              protocol: UDP
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 2048Mi
+            requests:
+              cpu: 1000m
+              memory: 2048Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sandstorm-test
+  labels:
+    app: sandstorm-test
+spec:
+  type: LoadBalancer
+  ports:
+    - name: gameport
+      port: 27102
+      targetPort: 27102
+      protocol: UDP
+    - name: queryport
+      port: 27131
+      targetPort: 27131
+      protocol: UDP
+  selector:
+    app: sandstorm-test
+
