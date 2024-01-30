@@ -4,7 +4,7 @@ metadata:
     name: engine-ini
     namespace: insurgency-sandstorm
 data:
-  Game.ini: |
+  Engine.ini: |
     [/Script/OnlineSubsystemUtils.IpNetDriver]
     MaxInternetClientRate=100000
     MaxClientRate=100000

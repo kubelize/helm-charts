@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mods
+  name: insurgency-sandstorm-mods
   namespace: insurgency-sandstorm
 spec:
   storageClassName: manual

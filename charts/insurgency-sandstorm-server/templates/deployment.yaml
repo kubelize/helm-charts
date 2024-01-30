@@ -33,7 +33,7 @@ spec:
       volumes:
         - name: mods
           persistentVolumeClaim:
-            claimName: insurgency-sandstorm
+            claimName: insurgency-sandstorm-mods
         - name: engine-ini
           configMap:
             name: engine-ini
@@ -46,9 +46,9 @@ spec:
         - name: admins-txt
           configMap:
             name: admins-txt
-        - name: maps-cycle-txt
+        - name: map-cycle-txt
           configMap:
-            name: maps-cycle-txt
+            name: map-cycle-txt
         - name: mods-txt
           configMap:
             name: mods-txt
@@ -62,11 +62,13 @@ spec:
             - name: HOSTNAME
               value: {{ .Values.env.hostname }}
             - name: PORT
-              value: {{ .Values.service.gameport }}
+              value: "27102"
             - name: QUERYPORT
-              value: {{ .Values.service.queryport }}
-            - name: LAUNCH_SERVER_ENV
-              value: {{ .Values.env.launch_server_env }}
+              value: "27131"
+            - name: MUTATORS
+              value: {{ .Values.env.mutators }}
+            - name: SCENARIO
+              value: TORO?Scenario=Scenario_TORO_Checkpoint_Security
           ports:
             - name: gameport
               containerPort: 27102
@@ -77,16 +79,22 @@ spec:
           volumeMounts:
             - name: engine-ini
               mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Saved/Config/LinuxServer/Engine.ini
+              subPath: Engine.ini
             - name: game-ini
-              mountPath: /home/steam/steamcmd/Sandstorm/Insurgency/Saved/Config/LinuxServer/Game.ini
+              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Saved/Config/LinuxServer/Game.ini
+              subPath: Game.ini
             - name: game-user-settings-ini
-              mountPath: /home/steam/steamcmd/Sandstorm/Insurgency/Saved/Config/LinuxServer/GameUserSettings.ini
+              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Saved/Config/LinuxServer/GameUserSettings.ini
+              subPath: GameUserSettings.ini
             - name: admins-txt
               mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Config/Server/Admins.txt
-            - name: maps-cycle-txt
-              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Config/Server/MapsCycle.txt
+              subPath: Admins.txt
+            - name: map-cycle-txt
+              mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Config/Server/MapCycle.txt
+              subPath: MapCycle.txt
             - name: mods-txt
               mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Config/Server/Mods.txt
+              subPath: Mods.txt
             - name: mods
               mountPath: /home/steam/steamcmd/sandstorm/Insurgency/Mods
           resources:
