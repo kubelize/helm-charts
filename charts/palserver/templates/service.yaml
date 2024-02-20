@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "palserver.fullname" . }}
+  labels:
+    {{- include "palserver.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: gameport
+      port: {{ .Values.service.gameport }}
+      targetPort: 8211
+      protocol: UDP
+  selector:
+    {{- include "palserver.selectorLabels" . | nindent 4 }}

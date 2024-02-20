@@ -1,13 +1,19 @@
-# Default values for insurgency-sandstorm-server.
+# Default values for palserver.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
 replicaCount: 1
+
 image:
-  repository: moffoso/insurgency-sandstorm-container
+  repository: moffoso/palserver
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "0.1.4"
+  tag: "0.0.5"
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
@@ -18,10 +24,13 @@ serviceAccount:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
+
 podAnnotations: {}
 podLabels: {}
+
 podSecurityContext: {}
   # fsGroup: 2000
+
 securityContext: {}
   # capabilities:
   #   drop:
@@ -29,31 +38,46 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
+
 service:
   type: LoadBalancer
-  gameport: 27102
-  queryport: 27131
-resources: 
+  gameport: 8211
+
+
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-    cpu: 1500m
-    memory: 8192Mi
-  requests:
-    cpu: 1500m
-    memory: 8192Mi
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
-env:
-  hostname: "ih schwöre bratan - Zombies"
-  mutators: "ISMCarmory_legacy,MoreAmmo,Zombies"
-  scenario: TORO?Scenario=Scenario_TORO_Checkpoint_Security
+
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
 nodeSelector: {}
+
 tolerations: []
+
 affinity: {}
