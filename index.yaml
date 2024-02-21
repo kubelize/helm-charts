@@ -22,7 +22,7 @@ entries:
     type: application
     urls:
     - https://github.com/moffoso/helm-charts/releases/download/kubevirt-hostpath-provisioner-0.1.0/kubevirt-hostpath-provisioner-0.1.0.tgz
-    version: 0.1.0
+    version: 0.1.1
   minecraft-server:
   - apiVersion: v2
     appVersion: 1.16.0
