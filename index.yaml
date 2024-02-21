@@ -3,7 +3,7 @@ entries:
   dbot-marcus:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-12-31T13:10:32.008249874+01:00"
+    created: "2024-02-21T17:40:33.222261299+01:00"
     description: A Helm chart for a simple discord bot that sends queries to the OpenAI
       API
     digest: 1f2a61394f0a921dbab1ddad8b734e55fed798c18990b1ed344ffb0cddf0ba84
@@ -12,10 +12,21 @@ entries:
     urls:
     - https://github.com/moffoso/helm-charts/releases/download/dbot-marcus-0.1.0/dbot-marcus-0.1.0.tgz
     version: 0.1.0
+  kubevirt-hostpath-provisioner:
+  - apiVersion: v2
+    appVersion: 0.18.0
+    created: "2024-02-21T17:40:33.222639548+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 350a43cb10758aad5e46bd5bf1a01a7b727d95536a27cbce0c80a20b73041014
+    name: kubevirt-hostpath-provisioner
+    type: application
+    urls:
+    - https://github.com/moffoso/helm-charts/releases/download/kubevirt-hostpath-provisioner-0.1.0/kubevirt-hostpath-provisioner-0.1.0.tgz
+    version: 0.1.0
   minecraft-server:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-12-31T13:10:32.008459611+01:00"
+    created: "2024-02-21T17:40:33.222944505+01:00"
     description: A minecraft-server helm chart for Kubernetes
     digest: 4c2d5f3715a3fbc63ed54b46a11520934b3dab38ee2d0aa792213f54f33f6c8e
     name: minecraft-server
@@ -23,4 +34,4 @@ entries:
     urls:
     - https://github.com/moffoso/helm-charts/releases/download/minecraft-server-0.1.0/minecraft-server-0.1.0.tgz
     version: 0.1.0
-generated: "2023-12-31T13:10:32.007943675+01:00"
+generated: "2024-02-21T17:40:33.221178321+01:00"
