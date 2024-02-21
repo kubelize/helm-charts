@@ -1,18 +1,24 @@
 apiVersion: apps/v1
-kind: DaemonSet
+kind: Deployment
 metadata:
-  name: kubevirt-hostpath-provisioner
-  namespace: {{ .Release.Namespace }}
+  name: {{ include "uptime-kuma.fullname" . }}
   labels:
-    k8s-app: kubevirt-hostpath-provisioner
+    {{- include "uptime-kuma.labels" . | nindent 4 }}
 spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
   selector:
     matchLabels:
-      k8s-app: kubevirt-hostpath-provisioner
+      {{- include "uptime-kuma.selectorLabels" . | nindent 6 }}
   template:
     metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       labels:
-        k8s-app: kubevirt-hostpath-provisioner
+        {{- include "uptime-kuma.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -21,7 +27,11 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ .Values.serviceAccount.name }}
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: {{ .Values.storage.name }}
+      serviceAccountName: {{ include "uptime-kuma.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -30,24 +40,25 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: USE_NAMING_PREFIX
-              value: {{ .Values.kubevirt.namePrefix }}
-            - name: NODE_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: spec.nodeName
-            - name: PV_DIR
-              value: {{ .Values.kubevirt.volumePath }}
+          volumeMounts:
+            - name: data
+              mountPath: /app/data
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.volumeMounts }}
           volumeMounts:
-            - name: pv-volume # root dir where your bind mounts will be on the node
-              mountPath: {{ .Values.kubevirt.volumePath }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.volumes }}
       volumes:
-        - name: pv-volume
-          hostPath:
-            path: {{ .Values.kubevirt.volumePath }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.nodeSelector }}
