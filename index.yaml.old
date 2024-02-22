@@ -3,19 +3,19 @@ entries:
   dbot-marcus:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-02-22T15:22:39.287147446+01:00"
+    created: "2024-02-21T22:13:01.379441835+01:00"
     description: A Helm chart for a simple discord bot that sends queries to the OpenAI
       API
     digest: 1f2a61394f0a921dbab1ddad8b734e55fed798c18990b1ed344ffb0cddf0ba84
     name: dbot-marcus
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/dbot-marcus-0.1.0/dbot-marcus-0.1.1.tgz
+    - https://github.com/moffoso/helm-charts/releases/download/dbot-marcus/dbot-marcus-0.1.1.tgz
     version: 0.1.0
   kubevirt-hostpath-provisioner:
   - apiVersion: v2
     appVersion: 0.18.0
-    created: "2024-02-22T15:22:39.28754287+01:00"
+    created: "2024-02-21T22:13:01.37981589+01:00"
     description: A Helm chart for Kubernetes
     digest: e48bff2b7ee4dfe03eb90bd5e8dc22c6cdfb2f10462974f6838a1c987783f517
     name: kubevirt-hostpath-provisioner
@@ -25,7 +25,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.18.0
-    created: "2024-02-22T15:22:39.287350704+01:00"
+    created: "2024-02-21T22:13:01.379628037+01:00"
     description: A Helm chart for Kubernetes
     digest: 350a43cb10758aad5e46bd5bf1a01a7b727d95536a27cbce0c80a20b73041014
     name: kubevirt-hostpath-provisioner
@@ -36,23 +36,12 @@ entries:
   minecraft-server:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-02-22T15:22:39.287744422+01:00"
+    created: "2024-02-21T22:13:01.380026949+01:00"
     description: A minecraft-server helm chart for Kubernetes
     digest: 4c2d5f3715a3fbc63ed54b46a11520934b3dab38ee2d0aa792213f54f33f6c8e
     name: minecraft-server
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/minecraft-server-0.1.0/mincraft-server-0.1.0.tgz
+    - https://github.com/moffoso/helm-charts/releases/download/minecraft-server-0.1.0/minecraft-server-0.1.0.tgz
     version: 0.1.0
-  uptime-kuma:
-  - apiVersion: v2
-    appVersion: 1.23.11
-    created: "2024-02-22T15:22:39.288305186+01:00"
-    description: A Helm chart for Kubernetes
-    digest: 43a0edaff75b3f4c66c26bb8c0c2536213b078ee3620fb0fc43ec06fb12d219c
-    name: uptime-kuma
-    type: application
-    urls:
-    - https://github.com/moffoso/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
-    version: 0.1.0
-generated: "2024-02-22T15:22:39.286847001+01:00"
+generated: "2024-02-21T22:13:01.379161733+01:00"

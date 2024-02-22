@@ -1,2 +1,0 @@
-When creating a pvc, set the following annotation: "kubevirt.io/provisionOnNode: [node]"
-And the StorageClass: "kubevirt-hostpath-provisioner"
