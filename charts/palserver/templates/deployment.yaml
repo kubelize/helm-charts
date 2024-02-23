@@ -28,6 +28,10 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "palserver.serviceAccountName" . }}
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: {{ .Values.storage.name }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -36,6 +40,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          volumeMounts:
+            - name: data
+              mountPath: /home/steam/Steam/steamapps/common/PalServer
           ports:
             - name: gameport
               containerPort: 8211
