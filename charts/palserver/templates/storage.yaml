@@ -13,4 +13,4 @@ spec:
   storageClassName: {{ .Values.storage.storageClassName | default "local-path" | quote }}
   resources:
     requests:
-      storage: {{ .Values.storage.capacity | default "30Gi" | quote }}
+      storage: {{ .Values.storage.capacity | default "40Gi" | quote }}
