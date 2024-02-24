@@ -11,5 +11,9 @@ spec:
       port: {{ .Values.service.gameport }}
       targetPort: 8211
       protocol: UDP
+    - name: rconport
+      port: 25575
+      targetPort: 25575
+      protocol: TCP
   selector:
     {{- include "palserver.selectorLabels" . | nindent 4 }}

@@ -47,6 +47,9 @@ spec:
             - name: gameport
               containerPort: 8211
               protocol: UDP
+            - name: rconport
+              containerPort: 25575
+              protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           {{- with .Values.volumeMounts }}
