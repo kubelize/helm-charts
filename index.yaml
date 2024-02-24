@@ -65,6 +65,16 @@ entries:
     urls:
     - https://github.com/moffoso/helm-charts/releases/download/palserver-0.1.1/palserver-0.1.1.tgz
     version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.0.6
+    created: "2024-02-23T14:05:44.04078833+01:00"
+    description: A Helm chart for Kubernetes
+    digest: efd42aa8d29778b1f03df3805b04daacf3a85ae6624a540196e083a8aa8c3f99
+    name: palserver
+    type: application
+    urls:
+    - https://github.com/moffoso/helm-charts/releases/download/palserver-0.1.2/palserver-0.1.2.tgz
+    version: 0.1.2
   uptime-kuma:
   - apiVersion: v2
     appVersion: 1.23.11
