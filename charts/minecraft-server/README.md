@@ -1,6 +1,6 @@
 # minecraft-server
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.16.0](https://img.shields.io/badge/AppVersion-1.16.0-informational?style=flat-square)
+![Version: 0.1.1](https://img.shields.io/badge/Version-0.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2024.2.2](https://img.shields.io/badge/AppVersion-2024.2.2-informational?style=flat-square)
 
 A minecraft-server helm chart for Kubernetes
 
@@ -33,6 +33,11 @@ A minecraft-server helm chart for Kubernetes
 | serviceAccount.annotations | object | `{}` |  |
 | serviceAccount.create | bool | `true` |  |
 | serviceAccount.name | string | `""` |  |
+| storage.accessMode | string | `"ReadWriteOnce"` |  |
+| storage.annotations | list | `[]` |  |
+| storage.capacity | string | `"20Gi"` |  |
+| storage.name | string | `"minecraft-server-data"` |  |
+| storage.storageClassName | string | `"manual"` |  |
 | tolerations | list | `[]` |  |
 
 ----------------------------------------------

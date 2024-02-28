@@ -16,6 +16,13 @@ serviceAccount:
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
   name: ""
+storage:
+  name: "minecraft-server-data"
+  accessMode: "ReadWriteOnce"
+  storageClassName: "manual"
+  capacity: "20Gi"
+  annotations: []
+    # kubevirt.io/provisionOnNode: "prod-svc-270224"
 podAnnotations: {}
 podSecurityContext: {}
   # fsGroup: 2000
