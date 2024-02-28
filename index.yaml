@@ -44,6 +44,16 @@ entries:
     urls:
     - https://github.com/moffoso/helm-charts/releases/download/minecraft-server-0.1.0/minecraft-server-0.1.0.tgz
     version: 0.1.0
+  - apiVersion: v2
+    appVersion: 2024.2.2
+    created: "2024-02-23T14:05:44.040555483+01:00"
+    description: A minecraft-server helm chart for Kubernetes
+    digest: 4c2d5f3715a3fbc63ed54b46a11520934b3dab38ee2d0aa792213f54f33f6c8e
+    name: minecraft-server
+    type: application
+    urls:
+    - https://github.com/moffoso/helm-charts/releases/download/minecraft-server-0.1.1/minecraft-server-0.1.1.tgz
+    version: 0.1.1
   palserver:
   - apiVersion: v2
     appVersion: 0.0.5
