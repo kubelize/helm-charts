@@ -96,4 +96,15 @@ entries:
     urls:
     - https://github.com/moffoso/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
+  arm-ripper:
+  - apiVersion: v2
+    appVersion: 2.6.18
+    created: "2024-02-23T14:05:44.041165039+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 43a0edaff75b3f4c66c26bb8c0c2536213b078ee3620fb0fc43ec06fb12d219c
+    name: arm-ripper
+    type: application
+    urls:
+    - https://github.com/moffoso/helm-charts/releases/download/arm-ripper-0.1.0/arm-ripper-0.1.0.tgz
+    version: 0.1.0
 generated: "2024-02-23T14:05:44.039222231+01:00"
