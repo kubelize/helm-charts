@@ -10,7 +10,7 @@ entries:
     name: dbot-marcus
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/dbot-marcus-0.1.0/dbot-marcus-0.1.0.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/dbot-marcus-0.1.0/dbot-marcus-0.1.0.tgz
     version: 0.1.0
   kubevirt-hostpath-provisioner:
   - apiVersion: v2
@@ -21,7 +21,7 @@ entries:
     name: kubevirt-hostpath-provisioner
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/kubevirt-hostpath-provisioner-0.1.1/kubevirt-hostpath-provisioner-0.1.1.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/kubevirt-hostpath-provisioner-0.1.1/kubevirt-hostpath-provisioner-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.18.0
@@ -31,7 +31,7 @@ entries:
     name: kubevirt-hostpath-provisioner
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/kubevirt-hostpath-provisioner-0.1.0/kubevirt-hostpath-provisioner-0.1.0.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/kubevirt-hostpath-provisioner-0.1.0/kubevirt-hostpath-provisioner-0.1.0.tgz
     version: 0.1.0
   minecraft-server:
   - apiVersion: v2
@@ -42,7 +42,7 @@ entries:
     name: minecraft-server
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/minecraft-server-0.1.0/minecraft-server-0.1.0.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/minecraft-server-0.1.0/minecraft-server-0.1.0.tgz
     version: 0.1.0
   - apiVersion: v2
     appVersion: 2024.2.2
@@ -52,7 +52,7 @@ entries:
     name: minecraft-server
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/minecraft-server-0.1.1/minecraft-server-0.1.1.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/minecraft-server-0.1.1/minecraft-server-0.1.1.tgz
     version: 0.1.1
   palserver:
   - apiVersion: v2
@@ -63,7 +63,7 @@ entries:
     name: palserver
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/palserver-0.1.0/palserver-0.1.0.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/palserver-0.1.0/palserver-0.1.0.tgz
     version: 0.1.0
   - apiVersion: v2
     appVersion: 0.0.6
@@ -73,7 +73,7 @@ entries:
     name: palserver
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/palserver-0.1.1/palserver-0.1.1.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/palserver-0.1.1/palserver-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.0.6
@@ -83,7 +83,7 @@ entries:
     name: palserver
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/palserver-0.1.2/palserver-0.1.2.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/palserver-0.1.2/palserver-0.1.2.tgz
     version: 0.1.2
   uptime-kuma:
   - apiVersion: v2
@@ -94,7 +94,7 @@ entries:
     name: uptime-kuma
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/uptime-kuma-0.1.0/uptime-kuma-0.1.0.tgz
     version: 0.1.0
   arm-ripper:
   - apiVersion: v2
@@ -105,7 +105,7 @@ entries:
     name: arm-ripper
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/arm-ripper-0.1.0/arm-ripper-0.1.0.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/arm-ripper-0.1.0/arm-ripper-0.1.0.tgz
     version: 0.1.0
   - apiVersion: v2
     appVersion: 2.6.18
@@ -115,6 +115,6 @@ entries:
     name: arm-ripper
     type: application
     urls:
-    - https://github.com/moffoso/helm-charts/releases/download/arm-ripper-0.1.1/arm-ripper-0.1.1.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/arm-ripper-0.1.1/arm-ripper-0.1.1.tgz
     version: 0.1.1
 generated: "2024-02-23T14:05:44.039222231+01:00"
