@@ -15,6 +15,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 storage:
+  enabled: false
   name: kubelize-nextra
   accessMode: "ReadWriteOnce"
   storageClassName: "manual"
