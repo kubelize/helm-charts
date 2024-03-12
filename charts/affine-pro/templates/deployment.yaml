@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "affine-notion.fullname" . }}
+  name: {{ include "affine-pro.fullname" . }}
   labels:
-    {{- include "affine-notion.labels" . | nindent 4 }}
+    {{- include "affine-pro.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "affine-notion.selectorLabels" . | nindent 6 }}
+      {{- include "affine-pro.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "affine-notion.labels" . | nindent 8 }}
+        {{- include "affine-pro.labels" . | nindent 8 }}
         {{- with .Values.podLabels }}
         {{- toYaml . | nindent 8 }}
         {{- end }}
@@ -27,7 +27,7 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "affine-notion.serviceAccountName" . }}
+      serviceAccountName: {{ include "affine-pro.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

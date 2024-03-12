@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "affine-notion.name" -}}
+{{- define "affine-pro.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "affine-notion.fullname" -}}
+{{- define "affine-pro.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "affine-notion.chart" -}}
+{{- define "affine-pro.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "affine-notion.labels" -}}
-helm.sh/chart: {{ include "affine-notion.chart" . }}
-{{ include "affine-notion.selectorLabels" . }}
+{{- define "affine-pro.labels" -}}
+helm.sh/chart: {{ include "affine-pro.chart" . }}
+{{ include "affine-pro.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "affine-notion.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "affine-notion.name" . }}
+{{- define "affine-pro.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "affine-pro.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "affine-notion.serviceAccountName" -}}
+{{- define "affine-pro.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "affine-notion.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "affine-pro.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
