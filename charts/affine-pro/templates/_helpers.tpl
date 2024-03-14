@@ -42,12 +42,60 @@ app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
+{{- define "web-affine-pro.labels" -}}
+app: web-affine-pro
+helm.sh/chart: {{ include "affine-pro.chart" . }}
+{{ include "affine-pro.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end }}
+
+{{- define "redis-affine-pro.labels" -}}
+app: redis-affine-pro
+helm.sh/chart: {{ include "affine-pro.chart" . }}
+{{ include "affine-pro.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end }}
+
+{{- define "postgres-affine-pro.labels" -}}
+app: postgres-affine-pro
+helm.sh/chart: {{ include "affine-pro.chart" . }}
+{{ include "affine-pro.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end }}
+
 {{/*
 Selector labels
 */}}
 {{- define "affine-pro.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "affine-pro.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{- define "web-affine-pro.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "affine-pro.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app: web-affine-pro
+{{- end }}
+
+{{- define "redis-affine-pro.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "affine-pro.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app: redis-affine-pro
+{{- end }}
+
+{{- define "postgres-affine-pro.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "affine-pro.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app: postgres-affine-pro
 {{- end }}
 
 {{/*

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "redis-%s" (include "affine-pro.fullname" .) | trunc 63 | trimSuffix "-" }}
+  labels:
+    {{- include "redis-affine-pro.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.redis.service.type }}
+  ports:
+    - port: {{ .Values.redis.service.port }}
+      targetPort: redis-default
+      protocol: TCP
+      name: redis-default
+  selector:
+    {{- include "redis-affine-pro.selectorLabels" . | nindent 4 }}

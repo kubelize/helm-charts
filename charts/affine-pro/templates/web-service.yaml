@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ printf "web-%s" (include "affine-pro.fullname" .) | trunc 63 | trimSuffix "-" }}
+  labels:
+    {{- include "web-affine-pro.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.web.service.type }}
+  ports:
+    - port: {{ .Values.web.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: {{ .Values.web.service.idkport }}
+      targetPort: idk
+      protocol: TCP
+      name: idk
+  selector:
+    {{- include "web-affine-pro.selectorLabels" . | nindent 4 }}
