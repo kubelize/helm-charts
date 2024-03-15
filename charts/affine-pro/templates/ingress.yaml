@@ -1,6 +1,5 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "affine-pro.fullname" . -}}
-{{- $svcName := printf "web-%s" (include "affine-pro.fullname" .) | trunc 63 | trimSuffix "-" -}}
 {{- $svcPort := .Values.web.service.port -}}
 {{- if and .Values.ingress.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
   {{- if not (hasKey .Values.ingress.annotations "kubernetes.io/ingress.class") }}
@@ -50,11 +49,11 @@ spec:
             backend:
               {{- if semverCompare ">=1.19-0" $.Capabilities.KubeVersion.GitVersion }}
               service:
-                name: {{ $fullName }}
+                name: web-affine-pro
                 port:
                   number: {{ $svcPort }}
               {{- else }}
-              serviceName: {{ $svcName }}
+              serviceName: web-affine-pro
               servicePort: {{ $svcPort }}
               {{- end }}
           {{- end }}
