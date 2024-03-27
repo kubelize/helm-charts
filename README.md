@@ -16,17 +16,20 @@ You can run `helm search repo kubelize` to see the different charts that are ava
 
 #### Storage
 
-- [kubevirt-hostpath-provisioner](/charts/kubevirt-hostpath-provisioner/README.md)
+| [kubevirt-hostpath-provisioner](/charts/kubevirt-hostpath-provisioner/README.md)| A Hostpath Storage Provisioner from Kubevirt | https://github.com/kubevirt/hostpath-provisioner |
+| --------------------------------------------------------------------------------|----------------------------------------------|--------------------------------------------------|
 
 ### Monitoring
 
-- [uptime-kuma](/charts/uptime-kuma/README.md)
+| [uptime-kuma](/charts/uptime-kuma/README.md) | A simple but powerful Monitoring solution | https://github.com/louislam/uptime-kuma |
+| ---------------------------------------------|-------------------------------------------|-----------------------------------------|
 
 ### Webservers
 
-- [nextra](/charts/nextra/README.md)
+| [nextra](/charts/nextra/README.md) | A Next.js and MDX based static website generator | https://nextra.site/ |
+| -----------------------------------|--------------------------------------------------|----------------------|
 
-### Discordbots
+### Misc
 
-- [dbot-marcus](/charts/dbot-marcus/README.md)
-
+| [arm-ripper](/charts/arm-ripper/README.md) | A tool for extracting old CD and DVD contents | https://github.com/automatic-ripping-machine/automatic-ripping-machine |
+| -------------------------------------------|-----------------------------------------------|------------------------------------------------------------------------|
