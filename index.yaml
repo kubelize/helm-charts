@@ -107,4 +107,15 @@ entries:
     urls:
     - https://github.com/kubelize/helm-charts/releases/download/affine-pro-0.1.1/affine-pro-0.1.1.tgz
     version: 0.1.1
+  goritch:
+  - apiVersion: v2
+    appVersion: stable
+    created: "2024-02-23T14:05:44.041165039+01:00"
+    description: A Helm chart for Kubernetes
+    digest: 43a0edaff75b3f4c66c26bb8c0c2536213b078ee3620fb0fc43ec06fb12d219c
+    name: goritch
+    type: application
+    urls:
+    - https://github.com/kubelize/helm-charts/releases/download/goritch-0.0.1/gortich-0.0.1.tgz
+    version: 0.1.0
 generated: "2024-02-23T14:05:44.039222231+01:00"
