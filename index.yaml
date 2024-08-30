@@ -116,6 +116,6 @@ entries:
     name: goritch
     type: application
     urls:
-    - https://github.com/kubelize/helm-charts/releases/download/goritch-0.0.1/gortich-0.0.1.tgz
+    - https://github.com/kubelize/helm-charts/releases/download/goritch-0.0.1/goritch-0.0.1.tgz
     version: 0.0.1
 generated: "2024-02-23T14:05:44.039222231+01:00"
