@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: page-content
+  namespace: {{ .Release.Namespace }}
+data:
+  index.html: |
+    <html>
+        <head>
+            <title>{{ .Values.pageTitle }}</title>
+        </head>
+        <body>
+            <pre>
+                {{ .Values.bodyContent | indent 16 }}
+            </pre>
+        </body>
+    </html>
